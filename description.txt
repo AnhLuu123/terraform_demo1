@@ -1,0 +1,6 @@
+Modules:
+Network: tạo VPC : 2 public subnet và 2 private subnet, Security group để ssh từ bên ngoài vào, NAT gateway, internet gateway
+- ec2 instance: 1 bastion host ở public subnet giơi hạn truy cập, 1 ec2 instance ở private subnet : webserver chạy nginx, pho laravel ( clone project từ source code từ git) đến nối đến vds mysql nằm ở 2 private subnet 
+- private key đc lấy từ bastion để ssh đến private subnet 
+requirement: ec2 web chỉ được truy cập ssh từ bastion host và mở full cổng 80
+- add: dựng auto scaling group để modify đến template cyar ec2 , webserver , dựng ALB để làm load banlacer
