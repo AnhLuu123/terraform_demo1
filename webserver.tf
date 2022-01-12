@@ -1,5 +1,5 @@
 // create key-pair
-resource "aws_key_pair" "mykey"{
+resource "aws_key_pair" "mykeyauth"{
   key_name = "mykeyauth"
   public_key = file(var.public-key)
 }
@@ -10,7 +10,7 @@ resource "aws_instance" "webserver" {
     ami = data.aws_ami.amazon-linux-2.id
     associate_public_ip_address = true
     instance_type = "t2.micro"
-    key_name = "webserver"
+    key_name = "mykeyauth"
     subnet_id = aws_subnet.public-subnet-2.id
     vpc_security_group_ids = [aws_security_group.SG-web-private.id]
     user_data     = <<-EOF
