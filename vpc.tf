@@ -131,37 +131,9 @@ resource "aws_security_group" "SG-web-private" {
     "Name" = "SG-web-private"
   }
 }
-resource "aws_security_group_rule" "ssh" {
-  type = "ingress"
-  from_port = 22
-  to_port = 22
-  protocol = "tcp"
-  security_group_id = aws_security_group.SG-web-private.id
-  source_security_group_id = aws_security_group.SG_bastion.id  
-}
-// create security group for lb
-resource "aws_security_group" "sg_lb" {
-    vpc_id = aws_vpc.myvpc.id
-    name = "sg_elb"
-    description = "security for lb"
-    egress {
-        from_port = 0
-        to_port = 0
-        protocol = "-1"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        from_port = 22
-        to_port = 80
-        protocol = "tcp"
 
-    }
-    
-    tags = {
-      "Name" = "sg_lb"
-    }
- 
-}
+
+
 
 
 

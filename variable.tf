@@ -23,6 +23,9 @@ variable "private-subnet-2-cidr" {
   
 }
 variable "public-key"{
-    default = "webserver.pub"
+    default = "mykeyauth.pub"
+}
+variable "public-key1"{ 
+    default = "mykeyauth1.pub"  
 }
 
